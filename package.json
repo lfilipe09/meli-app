@@ -23,6 +23,7 @@
     "lint": "eslint src --max-warnings=0",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
+    "generate": "yarn plop --plopfile generators/plopfile.js",
     "build-storybook": "storybook build"
   },
   "eslintConfig": {
@@ -86,6 +87,7 @@
     "jest-css-modules-transform": "^4.4.2",
     "jest-environment-jsdom": "^29.5.0",
     "lint-staged": "^15.0.2",
+    "plop": "^4.0.0",
     "prettier": "3.0.3",
     "prop-types": "^15.8.1",
     "storybook": "^7.5.1",
