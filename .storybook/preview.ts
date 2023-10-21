@@ -9,6 +9,23 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    backgrounds: {
+      default: 'meli-light',
+      values: [
+        {
+          name: 'meli-light',
+          value: '#FFFFFF'
+        },
+        {
+          name: 'meli-dark',
+          value: '#333333'
+        },
+        {
+          name: 'meli-main',
+          value: '#FFE600'
+        }
+      ]
     }
   }
 }

@@ -2,4 +2,13 @@
 
 .textfield{
   border: 1px solid #333;
+  font-size: v.$text-size-medium;
+  color: v.$color-gray-80;
+  border: 0;
+  padding: 1rem 2rem;
+  border-radius: v.$border-radius;
+  width: 100%;
+  &::placeholder{
+    color: v.$color-gray-40;
+  }
 }
