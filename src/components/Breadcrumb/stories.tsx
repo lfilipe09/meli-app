@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import Breadcrumb, { BreadcrumbProps } from '.'
 
 export default {
-  title: 'Breadcrumb',
+  title: 'Atoms/Breadcrumb',
   component: Breadcrumb
 } as Meta
 

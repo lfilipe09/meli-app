@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import ResponsiveImage, { ResponsiveImageProps } from '.'
 
 export default {
-  title: 'ResponsiveImage',
+  title: 'Atoms/ResponsiveImage',
   component: ResponsiveImage
 } as Meta
 
