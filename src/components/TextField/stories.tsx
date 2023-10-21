@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react'
 import TextField, { TextFieldProps } from '.'
 
 export default {
-  title: 'TextField',
+  title: 'Atoms/TextField',
   component: TextField,
   parameters: {
     backgrounds: {

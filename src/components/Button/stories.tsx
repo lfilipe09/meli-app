@@ -5,7 +5,7 @@ import magnifyingGlass2x from '../../../public/img/ic_Search@2x.png'
 import ResponsiveImage from '../ResponsiveImage'
 
 export default {
-  title: 'Button',
+  title: 'Atoms/Button',
   component: Button
 } as Meta
 
