@@ -1,0 +1,36 @@
+@use "../../styles/variables.scss" as v;
+
+.product-card{
+  justify-content: space-between;
+  text-decoration: none;
+  color: v.$color-gray-80;
+  font-size: v.$text-size-medium;
+  >div{
+    display: grid;
+    gap: v.$spacing-small;
+    align-items: center;
+    a {
+      text-decoration: none;
+      color: v.$color-gray-80;
+    }
+    .product-card__info-price{
+      span{
+        font-size: v.$text-size-large;
+        margin-right: 1rem;
+      }
+      @media #{v.$medium} {
+        margin-bottom: v.$spacing-medium;
+      }
+    }
+    @media #{v.$medium} {
+      grid-template-columns: 18rem 1fr;
+    }
+  }
+  >span{
+    margin-top: 3.2rem;
+    font-size: v.$text-size-xsmall;
+  }
+  @media #{v.$medium} {
+    display: flex;
+  }
+}
