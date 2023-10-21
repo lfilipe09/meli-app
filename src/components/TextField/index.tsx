@@ -14,7 +14,7 @@ const TextField = ({
   onInputChange,
   ...props
 }: TextFieldProps) => {
-  const [value, setValue] = useState(initialValue)
+  const [value, setValue] = useState<string>(initialValue ?? '')
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.currentTarget.value
     setValue(newValue)
