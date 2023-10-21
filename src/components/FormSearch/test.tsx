@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event' // Import userEvent for better form interaction.
+import userEvent from '@testing-library/user-event'
 import FormSearch from '.'
 
 jest.mock('react-router-dom')
@@ -35,13 +35,17 @@ describe('<FormSearch />', () => {
       name: 'Um ícone de lupa'
     })
 
-    // Enter a value in the input field
     await userEvent.type(inputElement, 'Test Input')
 
-    // Submit the form
     await userEvent.click(buttonElement)
+  })
 
-    // You can add assertions here for form submission behavior.
-    // For example, you can check if a redirection occurred.
+  it('should not submit the form when the input value is empty', async () => {
+    render(<FormSearch />)
+    const buttonElement = screen.getByRole('button', {
+      name: 'Um ícone de lupa'
+    })
+
+    await userEvent.click(buttonElement)
   })
 })

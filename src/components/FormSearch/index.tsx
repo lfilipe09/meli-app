@@ -18,7 +18,9 @@ const FormSearch = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
-    return redirect(`/items?search=${value}`)
+    if (value !== '') {
+      return redirect(`/items?search=${value}`)
+    }
   }
   return (
     <form
