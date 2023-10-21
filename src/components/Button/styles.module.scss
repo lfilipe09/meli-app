@@ -1,0 +1,11 @@
+@use "../../styles/variables.scss" as v;
+
+.button{
+  background: v.$color-gray-10;
+  border: 0;
+  padding: 1rem;
+  cursor: pointer;
+  span{
+    display: grid;
+  }
+}
