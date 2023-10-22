@@ -28,7 +28,9 @@
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "generate": "plop --plopfile generators/plopfile.js",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -82,6 +84,7 @@
     "@types/react-helmet": "^6.1.8",
     "axios-mock-adapter": "^1.22.0",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "cypress": "^13.3.2",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-cypress": "^2.15.1",
