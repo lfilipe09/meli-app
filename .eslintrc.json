@@ -45,7 +45,7 @@
     "scss/at-rule-no-unknown": 0,
     "scss/declaration-no-important": 0
   },
-  "ignorePatterns": ["**/*.css","**/*.scss","*.png", "*.scss"],
+  "ignorePatterns": ["*.css","*.scss","*.png", "*.scss", "*.woff2"],
   "settings": {
     "react": {
       "version": "detect"
