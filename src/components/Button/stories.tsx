@@ -22,3 +22,11 @@ Basic.args = {
     />
   )
 }
+
+export const Text: StoryFn<ButtonProps> = (args) => <Button {...args} />
+
+Text.args = {
+  children: 'Comprar',
+  color: 'blue',
+  size: 'full'
+}

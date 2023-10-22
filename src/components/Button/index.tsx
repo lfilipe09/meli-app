@@ -1,13 +1,22 @@
 import React, { ButtonHTMLAttributes, forwardRef } from 'react'
 import styles from './styles.module.scss'
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+export type ButtonProps = {
+  color?: 'blue' | 'grey'
+  size?: 'full' | 'fit'
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
-  { children, ...props },
+  { children, color = 'grey', size = 'fit', ...props },
   ref
 ) => (
-  <button className={styles.button} ref={ref} {...props}>
+  <button
+    className={`${styles.button} ${
+      color === 'blue' ? styles['button--secondary'] : ''
+    } ${size === 'full' ? styles['button--full'] : ''}`}
+    ref={ref}
+    {...props}
+  >
     {!!children && <span>{children}</span>}
   </button>
 )

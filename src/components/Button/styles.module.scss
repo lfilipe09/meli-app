@@ -9,4 +9,12 @@
   span{
     display: grid;
   }
+  &.button--secondary{
+    background-color: v.$color-blue;
+    color: v.$color-white;
+  }
+  &.button--full{
+    width: 100%;
+    font-size: v.$text-size-base;
+  }
 }
