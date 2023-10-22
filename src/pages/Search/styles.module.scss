@@ -1,0 +1,21 @@
+@use "../../styles/variables.scss" as v;
+
+.search__breadcrumbs{
+  margin: v.$spacing-small;
+}
+
+.search__list{
+  background-color: v.$color-white;
+  border-radius: v.$border-radius;
+  .search__item{
+    border-bottom: 1px solid v.$color-gray-10;
+    margin: 0 2rem;
+    padding: 2rem 2rem 2rem 0;
+    @media #{v.$medium} {
+      padding-right: 9rem;
+    }
+    img{
+      margin: 0 auto;
+    }
+  }
+}
