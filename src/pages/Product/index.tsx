@@ -1,5 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
+
 import Base from '../Base'
 import { useEffect, useState } from 'react'
 import { ProductAPIProps } from '../../types/product'
@@ -62,6 +64,20 @@ const Product = () => {
         </div>
       ) : (
         <>
+          {items && (
+            <Helmet>
+              <title>{items.items.title}</title>
+              <meta name="description" content={items.items.description} />
+              <meta property="og:title" content={items.items.title} />
+              <meta
+                property="og:description"
+                content={items.items.description}
+              />
+              <meta property="og:image" content={items.items.picture_url} />
+              <meta property="og:url" content={window.location.href} />
+              <link rel="canonical" href={window.location.href} />
+            </Helmet>
+          )}
           <div className={styles['product__breadcrumbs']}>
             <Breadcrumb items={items?.categories ?? []} />
           </div>
