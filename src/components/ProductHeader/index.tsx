@@ -21,7 +21,7 @@ const ProductHeader = ({
   soldQty,
   title
 }: ProductHeaderProps) => (
-  <div className={styles['product-header']}>
+  <div className={styles['product-header']} data-testid={'product-header'}>
     <div className={styles['product-cover-img']}>
       <ResponsiveImage
         alt={img.alt}
