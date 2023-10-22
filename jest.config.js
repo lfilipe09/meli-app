@@ -5,9 +5,10 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.ts(x)?',
     '!src/**/stories.tsx',
-    '!src/pages/**/*.tsx',
     '!src/styles/**/*.tsx',
-    '!src/**/mock.ts'
+    '!src/types/*.ts(x)?',
+    '!src/**/mock.ts',
+    '!src/(App|index|reportWebVitals|routes).ts(x)?'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   modulePaths: ['<rootDir>/src/'],

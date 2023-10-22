@@ -8,13 +8,15 @@ import FormSearch from '../FormSearch'
 
 const Header = () => (
   <div className={styles.header}>
-    <ResponsiveImage
-      alt="Logotipo Mercado Livre"
-      srcSet={`${Logo} 1x, ${Logo2x} 2x`}
-      src={Logo}
-      width={53}
-      isLazyLoad={true}
-    />
+    <a href="/">
+      <ResponsiveImage
+        alt="Logotipo Mercado Livre"
+        srcSet={`${Logo} 1x, ${Logo2x} 2x`}
+        src={Logo}
+        width={53}
+        isLazyLoad={true}
+      />
+    </a>
     <FormSearch />
   </div>
 )

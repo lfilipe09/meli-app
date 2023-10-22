@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useMatch, useNavigate } from 'react-router-dom'
 import styles from './styles.module.scss'
 
 import TextField from '../TextField'
@@ -12,6 +12,7 @@ import magnifyingGlass2x from '../../assets/img/ic_Search@2x.png'
 const FormSearch = () => {
   const navigate = useNavigate()
   const [value, setValue] = useState<string>('')
+  const searchPath = useMatch('/items')
 
   const handleInput = (inputValue: string) => {
     setValue(inputValue)
@@ -21,6 +22,9 @@ const FormSearch = () => {
     event.preventDefault()
     if (value !== '') {
       navigate(`/items?search=${value}`)
+      if (searchPath) {
+        window.location.reload()
+      }
     }
   }
   return (
