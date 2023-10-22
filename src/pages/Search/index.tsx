@@ -37,30 +37,32 @@ const Search = () => {
   return (
     <Base>
       {loading ? (
-        <svg
-          width={80}
-          height={80}
-          viewBox="-3 -3 42 42"
-          xmlns="http://www.w3.org/2000/svg"
-          stroke="#333333"
-        >
-          <title>Loading...</title>
-          <g fill="none" fillRule="evenodd">
-            <g transform="translate(1 1)" strokeWidth="3">
-              <circle strokeOpacity=".2" cx="18" cy="18" r="18" />
-              <path d="M36 18c0-9.94-8.06-18-18-18">
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="0 18 18"
-                  to="360 18 18"
-                  dur="1s"
-                  repeatCount="indefinite"
-                />
-              </path>
+        <div className={styles['search__loader']}>
+          <svg
+            width={80}
+            height={80}
+            viewBox="-3 -3 42 42"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="#333333"
+          >
+            <title>Loading...</title>
+            <g fill="none" fillRule="evenodd">
+              <g transform="translate(1 1)" strokeWidth="3">
+                <circle strokeOpacity=".2" cx="18" cy="18" r="18" />
+                <path d="M36 18c0-9.94-8.06-18-18-18">
+                  <animateTransform
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 18 18"
+                    to="360 18 18"
+                    dur="1s"
+                    repeatCount="indefinite"
+                  />
+                </path>
+              </g>
             </g>
-          </g>
-        </svg>
+          </svg>
+        </div>
       ) : (
         <>
           <div className={styles['search__breadcrumbs']}>

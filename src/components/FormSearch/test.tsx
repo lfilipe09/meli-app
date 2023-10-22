@@ -77,4 +77,23 @@ describe('<FormSearch />', () => {
 
     await userEvent.click(buttonElement)
   })
+
+  it('should submit the form when the button is clicked', async () => {
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/items" element={<FormSearch />} />
+        </Routes>
+      </BrowserRouter>
+    )
+
+    const inputElement = screen.getByPlaceholderText('Nunca deixe de buscar')
+    const buttonElement = screen.getByRole('button', {
+      name: 'Um ícone de lupa'
+    })
+
+    await userEvent.type(inputElement, 'Test Input')
+
+    await userEvent.click(buttonElement)
+  })
 })

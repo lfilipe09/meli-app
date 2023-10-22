@@ -7,6 +7,7 @@ module.exports = {
     '!src/**/stories.tsx',
     '!src/styles/**/*.tsx',
     '!src/types/*.ts(x)?',
+    '!src/pages/**/*.ts(x)?',
     '!src/**/mock.ts',
     '!src/(App|index|reportWebVitals|routes).ts(x)?'
   ],
