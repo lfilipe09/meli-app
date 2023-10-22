@@ -13,6 +13,12 @@
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
+    <link rel="preload" href="../src/styles/global.scss" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../src/styles/global.scss"></noscript>
+
+    <link rel="preload" href="../src/styles/variables.scss" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../src/styles/variables.scss"></noscript>
+
     <title>Mercado Livre Brasil - Frete Grátis no mesmo dia</title>
   </head>
   <body>

@@ -106,14 +106,18 @@ const Search = () => {
           </div>
           <section className={styles['search__list']}>
             {items?.items.map((item) => (
-              <div className={styles['search__item']} key={item.id}>
+              <div
+                className={styles['search__item']}
+                key={item.id}
+                data-testid={'product-card'}
+              >
                 <ProductCard
                   city={item.city}
                   condition={item.condition}
                   id={item.id}
                   img={{
                     alt: item.title,
-                    url: item.picture_url
+                    url: item.picture_url.replace(/(.)(?=\.[^.]*$)/, 'O')
                   }}
                   isFreeShipping={item.free_shipping}
                   price={formatPrice({
