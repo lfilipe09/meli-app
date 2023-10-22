@@ -1,0 +1,41 @@
+@use "../../styles/variables.scss" as v;
+
+.product-header{
+  display: grid;
+  @media #{v.$mobile}, #{v.$tablet} {
+    img{
+      width: 100%;
+    }
+  }
+  @media #{v.$desktop} {
+    grid-template-columns: 68rem 1fr;
+    gap: v.$spacing-medium;
+  }
+  .product-header__content{
+    @media #{v.$desktop} {
+      padding: v.$spacing-medium v.$spacing-medium 0 0;
+    }
+    display: grid;
+    height: fit-content;
+    gap: v.$spacing-medium;
+    h1{
+      font-size: v.$text-size-large;
+      margin-top: v.$spacing-small;
+    }
+    .product-header__condition{
+      font-size: v.$text-size-small;
+    }
+    .product-header__price{
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      .product-header__price-amount{
+        font-size: v.$text-size-xxlarge;
+      }
+      .product-header__price-decimals{
+        font-size: v.$text-size-large;
+        padding-top: 0.4rem;
+      }
+    }
+  }
+}
