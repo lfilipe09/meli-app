@@ -1,7 +1,18 @@
+import React from 'react';
 import type { Preview } from '@storybook/react'
 import '../src/styles/global.scss'
+import { MemoryRouter,Routes, Route } from 'react-router-dom';
 
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+      <Routes>
+        <Route path="/*" element={<Story />} />
+      </Routes>
+    </MemoryRouter>
+    ),
+  ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {

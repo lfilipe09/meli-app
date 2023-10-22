@@ -2,8 +2,8 @@ import React from 'react'
 import styles from './styles.module.scss'
 import ResponsiveImage from '../ResponsiveImage'
 
-import Logo from '../../../public/img/Logo_ML.png'
-import Logo2x from '../../../public/img/Logo_ML@2x.png'
+import Logo from '../../assets/img/Logo_ML.png'
+import Logo2x from '../../assets/img/Logo_ML@2x.png'
 import FormSearch from '../FormSearch'
 
 const Header = () => (
