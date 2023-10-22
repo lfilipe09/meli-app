@@ -35,6 +35,9 @@
       "react-app/jest"
     ]
   },
+  "overrides": {
+    "react-refresh": "0.11.0"
+  },
   "transform": {
     "\\.js$": "<rootDir>/node_modules/babel-jest"
   },
