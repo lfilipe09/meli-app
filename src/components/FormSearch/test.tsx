@@ -78,7 +78,16 @@ describe('<FormSearch />', () => {
     await userEvent.click(buttonElement)
   })
 
-  it('should submit the form when the button is clicked', async () => {
+  it('should reload when the button is clicked in /items', async () => {
+    const location: Location = window.location
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    delete window.location
+    window.location = {
+      ...location,
+      reload: jest.fn()
+    }
+
     render(
       <BrowserRouter>
         <Routes>
@@ -95,5 +104,9 @@ describe('<FormSearch />', () => {
     await userEvent.type(inputElement, 'Test Input')
 
     await userEvent.click(buttonElement)
+
+    expect(window.location.reload).toHaveBeenCalledTimes(1)
+    jest.restoreAllMocks()
+    window.location = location
   })
 })

@@ -7,7 +7,10 @@ import ProductCard from '../../components/ProductCard'
 import { formatPrice } from '../../utils/priceFormatter'
 import Breadcrumb from '../../components/Breadcrumb'
 
+import meliLogo from '../../assets/img/Logo_ML@2x.png'
+
 import styles from './styles.module.scss'
+import { Helmet } from 'react-helmet'
 
 const Search = () => {
   const [searchParams] = useSearchParams()
@@ -65,6 +68,39 @@ const Search = () => {
         </div>
       ) : (
         <>
+          {items && (
+            <Helmet>
+              <title>
+                Busca&nbsp;-&nbsp;
+                {searchParams.get('search')
+                  ? searchParams.get('search')
+                  : searchParams.get('category')}
+              </title>
+              <meta
+                name="description"
+                content={
+                  'Explore nossa ampla gama de produtos da coleção. Encontre os itens perfeitos para suas necessidades.'
+                }
+              />
+              <meta
+                property="og:title"
+                content={`Busca - ${
+                  searchParams.get('search')
+                    ? searchParams.get('search')
+                    : searchParams.get('category')
+                }`}
+              />
+              <meta
+                property="og:description"
+                content={
+                  'Explore nossa ampla gama de produtos da coleção. Encontre os itens perfeitos para suas necessidades.'
+                }
+              />
+              <meta property="og:image" content={meliLogo} />
+              <meta property="og:url" content={window.location.href} />
+              <link rel="canonical" href={window.location.href} />
+            </Helmet>
+          )}
           <div className={styles['search__breadcrumbs']}>
             <Breadcrumb items={items?.categories ?? []} />
           </div>
