@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import ProductCard from '.'
+import ProductHeader from '.'
 
 const mockProduct = {
   img: {
@@ -8,11 +8,9 @@ const mockProduct = {
     alt: 'Mock Alt Text'
   },
   price: '123.45',
-  isFreeShipping: true,
   title: 'Mock Product Title',
-  city: 'Mock City',
   condition: 'new',
-  id: 'mockProductId'
+  soldQty: 42
 }
 
 const mockProductSecondary = {
@@ -21,37 +19,35 @@ const mockProductSecondary = {
     alt: 'Mock Alt Text'
   },
   price: '123.45',
-  isFreeShipping: true,
   title: 'Mock Product Title',
-  city: 'Mock City',
   condition: 'old',
-  id: 'mockProductId'
+  soldQty: 42
 }
 
-describe('<ProductCard />', () => {
+describe('<ProductHeader />', () => {
   it('renders product details correctly', () => {
-    render(<ProductCard {...mockProduct} />)
+    render(<ProductHeader {...mockProduct} />)
 
     const productTitle = screen.getByText(mockProduct.title)
     expect(productTitle).toBeInTheDocument()
 
-    const productPrice = screen.getByText(mockProduct.price)
+    const productPrice = screen.getByText('123')
     expect(productPrice).toBeInTheDocument()
 
-    const freeShippingIcon = screen.getByAltText('Frete Grátis')
-    expect(freeShippingIcon).toBeInTheDocument()
-
-    const productCity = screen.getByText(mockProduct.city)
-    expect(productCity).toBeInTheDocument()
-
-    const productCondition = screen.getByText('Novo')
+    const productCondition = screen.getByText('Novo -')
     expect(productCondition).toBeInTheDocument()
+
+    const productSoldQty = screen.getByText('42 vendidos')
+    expect(productSoldQty).toBeInTheDocument()
+
+    const buyButton = screen.getByText('Comprar')
+    expect(buyButton).toBeInTheDocument()
   })
 
   it('renders condition based on condition prop', () => {
-    render(<ProductCard {...mockProductSecondary} />)
+    render(<ProductHeader {...mockProductSecondary} />)
 
-    const productCondition = screen.getByText('Usado')
+    const productCondition = screen.getByText('Usado -')
     expect(productCondition).toBeInTheDocument()
   })
 })

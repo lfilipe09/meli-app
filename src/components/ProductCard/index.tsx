@@ -14,7 +14,7 @@ export type ProductCardProps = {
   isFreeShipping: boolean
   title: string
   city: string
-  condition?: string
+  condition: string
   id: string
 }
 
@@ -51,7 +51,7 @@ const ProductCard = ({
           )}
         </div>
         <div>{title}</div>
-        {condition && <div>{condition === 'new' ? 'Novo' : 'Usado'}</div>}
+        <div>{condition === 'new' ? 'Novo' : 'Usado'}</div>
       </div>
     </div>
     <span>{city}</span>

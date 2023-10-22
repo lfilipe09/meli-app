@@ -7,13 +7,11 @@ describe('<Breadcrumb />', () => {
     const items = ['Home', 'Category', 'Subcategory', 'Product']
     render(<Breadcrumb items={items} />)
 
-    // Check if each item is rendered
     items.forEach((item) => {
       const linkElement = screen.getByText(item)
       expect(linkElement).toBeInTheDocument()
     })
 
-    // Check for the last item to have the active class
     const activeItem = screen.getByText('Product')
     expect(activeItem).toHaveClass('breadcrumb__item--active')
   })
@@ -22,7 +20,6 @@ describe('<Breadcrumb />', () => {
     const items = ['Home']
     render(<Breadcrumb items={items} />)
 
-    // Check if the item is rendered
     const linkElement = screen.getByText('Home')
     expect(linkElement).toBeInTheDocument()
   })
@@ -31,7 +28,6 @@ describe('<Breadcrumb />', () => {
     const items = ['Home', 'Category', 'Subcategory', 'Product']
     render(<Breadcrumb items={items} />)
 
-    // Check if no separator is rendered after the last item
     const separators = screen.getAllByTestId('breadcrumb-separator')
     expect(separators).toHaveLength(items.length - 1)
   })
