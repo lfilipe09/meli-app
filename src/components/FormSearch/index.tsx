@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import { redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styles from './styles.module.scss'
 
 import TextField from '../TextField'
 import Button from '../Button'
 import ResponsiveImage from '../ResponsiveImage'
 
-import magnifyingGlass from '../../../public/img/ic_Search.png'
-import magnifyingGlass2x from '../../../public/img/ic_Search@2x.png'
+import magnifyingGlass from '../../assets/img/ic_Search.png'
+import magnifyingGlass2x from '../../assets/img/ic_Search@2x.png'
 
 const FormSearch = () => {
+  const navigate = useNavigate()
   const [value, setValue] = useState<string>('')
 
   const handleInput = (inputValue: string) => {
@@ -19,7 +20,7 @@ const FormSearch = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     if (value !== '') {
-      return redirect(`/items?search=${value}`)
+      navigate(`/items?search=${value}`)
     }
   }
   return (

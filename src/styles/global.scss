@@ -47,7 +47,12 @@ body {
   font-size: v.$text-size-base;
   font-weight: v.$font-weight-regular;
   color: v.$color-gray-80;
+  background-color: v.$color-gray-10;
 } 
+
+body *{ 
+  font-family: v.$font-family-base;
+}
 
 .container{
   width: 100%;

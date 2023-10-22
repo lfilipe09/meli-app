@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react'
 import Button, { ButtonProps } from '.'
-import magnifyingGlass from '../../../public/img/ic_Search.png'
-import magnifyingGlass2x from '../../../public/img/ic_Search@2x.png'
+import magnifyingGlass from '../../assets/img/ic_Search.png'
+import magnifyingGlass2x from '../../assets/img/ic_Search@2x.png'
 import ResponsiveImage from '../ResponsiveImage'
 
 export default {

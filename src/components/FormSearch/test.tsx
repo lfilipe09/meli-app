@@ -1,13 +1,21 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import FormSearch from '.'
 
-jest.mock('react-router-dom')
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import FormSearch from '.'
 
 describe('<FormSearch />', () => {
   it('should render the form with an input field and a button', () => {
-    render(<FormSearch />)
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<FormSearch />} />
+          <Route path="/items" element={<FormSearch />} />
+        </Routes>
+      </BrowserRouter>
+    )
 
     const inputElement = screen.getByPlaceholderText('Nunca deixe de buscar')
     const buttonElement = screen.getByRole('button', {
@@ -19,7 +27,14 @@ describe('<FormSearch />', () => {
   })
 
   it('should allow changing the input value', async () => {
-    render(<FormSearch />)
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<FormSearch />} />
+          <Route path="/items" element={<FormSearch />} />
+        </Routes>
+      </BrowserRouter>
+    )
 
     const inputElement = screen.getByPlaceholderText('Nunca deixe de buscar')
     await userEvent.type(inputElement, 'Test Input')
@@ -28,7 +43,14 @@ describe('<FormSearch />', () => {
   })
 
   it('should submit the form when the button is clicked', async () => {
-    render(<FormSearch />)
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<FormSearch />} />
+          <Route path="/items" element={<FormSearch />} />
+        </Routes>
+      </BrowserRouter>
+    )
 
     const inputElement = screen.getByPlaceholderText('Nunca deixe de buscar')
     const buttonElement = screen.getByRole('button', {
@@ -41,7 +63,14 @@ describe('<FormSearch />', () => {
   })
 
   it('should not submit the form when the input value is empty', async () => {
-    render(<FormSearch />)
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<FormSearch />} />
+          <Route path="/items" element={<FormSearch />} />
+        </Routes>
+      </BrowserRouter>
+    )
     const buttonElement = screen.getByRole('button', {
       name: 'Um ícone de lupa'
     })

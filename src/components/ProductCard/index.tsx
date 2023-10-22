@@ -2,8 +2,8 @@ import React from 'react'
 import styles from './styles.module.scss'
 import ResponsiveImage from '../ResponsiveImage'
 
-import freeShipping from '../../../public/img/ic_shipping.png'
-import freeShipping2x from '../../../public/img/ic_shipping@2x.png'
+import freeShipping from '../../assets/img/ic_shipping.png'
+import freeShipping2x from '../../assets/img/ic_shipping@2x.png'
 
 export type ProductCardProps = {
   img: {
