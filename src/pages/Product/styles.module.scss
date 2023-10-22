@@ -1,0 +1,35 @@
+@use "../../styles/variables.scss" as v;
+
+.product__breadcrumbs{
+  margin: v.$spacing-small;
+}
+
+.product__product-card{
+  background-color: v.$color-white;
+  border-radius: v.$border-radius;
+  padding: v.$spacing-medium;
+  display: grid;
+  gap: 4rem;
+  @media #{v.$medium} {
+    gap: 7rem;
+  }
+  h2{
+    font-size: v.$text-size-xlarge;
+    font-weight: v.$font-weight-regular;
+  }
+  p{
+    margin: v.$spacing-small 0;
+    @media #{v.$medium} {
+      margin: v.$spacing-medium 0;
+    }
+    max-width: 86rem;
+    color: v.$color-gray-40;
+  }
+}
+
+.product__loader{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

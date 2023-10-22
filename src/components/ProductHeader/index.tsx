@@ -22,12 +22,14 @@ const ProductHeader = ({
   title
 }: ProductHeaderProps) => (
   <div className={styles['product-header']}>
-    <ResponsiveImage
-      alt={img.alt}
-      src={img.url}
-      width={680}
-      isLazyLoad={true}
-    />
+    <div className={styles['product-cover-img']}>
+      <ResponsiveImage
+        alt={img.alt}
+        src={img.url}
+        height={680}
+        isLazyLoad={true}
+      />
+    </div>
     <div className={styles['product-header__content']}>
       <div>
         <div className={styles['product-header__condition']}>

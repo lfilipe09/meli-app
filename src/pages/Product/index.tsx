@@ -1,27 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useParams } from 'react-router-dom'
 import Base from '../Base'
-import { useSearchParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { ProductAPIProps } from '../../types/product'
 import { api } from '../../services/api'
-import { ItemsAPIProps } from '../../types/product'
-import ProductCard from '../../components/ProductCard'
-import { formatPrice } from '../../utils/priceFormatter'
 import Breadcrumb from '../../components/Breadcrumb'
 
 import styles from './styles.module.scss'
+import ProductHeader from '../../components/ProductHeader'
+import { formatPrice } from '../../utils/priceFormatter'
 
-const Search = () => {
-  const [searchParams] = useSearchParams()
-  const [items, setItems] = useState<ItemsAPIProps>()
+const Product = () => {
+  const { id } = useParams()
+  const [items, setItems] = useState<ProductAPIProps>()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get<ItemsAPIProps>(
-          searchParams.get('search')
-            ? `/api/items?search=${searchParams.get('search')}`
-            : `/api/items?category=${searchParams.get('category')}`
-        )
+        const response = await api.get<ProductAPIProps>(`/api/items/${id}`)
         setItems(response.data)
         setLoading(false)
       } catch (error) {
@@ -37,7 +34,7 @@ const Search = () => {
   return (
     <Base>
       {loading ? (
-        <div className={styles['search__loader']}>
+        <div className={styles['product__loader']}>
           <svg
             width={80}
             height={80}
@@ -65,35 +62,37 @@ const Search = () => {
         </div>
       ) : (
         <>
-          <div className={styles['search__breadcrumbs']}>
+          <div className={styles['product__breadcrumbs']}>
             <Breadcrumb items={items?.categories ?? []} />
           </div>
-          <section className={styles['search__list']}>
-            {items?.items.map((item) => (
-              <div className={styles['search__item']} key={item.id}>
-                <ProductCard
-                  city={item.city}
-                  condition={item.condition}
-                  id={item.id}
-                  img={{
-                    alt: item.title,
-                    url: item.picture_url
-                  }}
-                  isFreeShipping={item.free_shipping}
-                  price={formatPrice({
-                    currency: item.price.currency,
-                    amount: item.price.amount,
-                    decimals: item.price.decimals
-                  })}
-                  title={item.title}
-                />
+          <div className={styles['product__product-card']}>
+            {items && (
+              <ProductHeader
+                condition={items.items.condition}
+                img={{
+                  alt: items.items.title,
+                  url: items.items.picture_url
+                }}
+                price={formatPrice({
+                  currency: items.items.price.currency,
+                  amount: items.items.price.amount,
+                  decimals: items.items.price.decimals
+                })}
+                soldQty={items.items.sold_qty}
+                title={items.items.title}
+              />
+            )}
+            {items?.items.description && (
+              <div>
+                <h2>Descrição</h2>
+                <p>{items?.items.description}</p>
               </div>
-            ))}
-          </section>
+            )}
+          </div>
         </>
       )}
     </Base>
   )
 }
 
-export default Search
+export default Product

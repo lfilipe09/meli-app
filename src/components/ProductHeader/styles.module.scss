@@ -2,10 +2,14 @@
 
 .product-header{
   display: grid;
-  @media #{v.$mobile}, #{v.$tablet} {
-    img{
-      width: 100%;
-    }
+  .product-cover-img{
+    background-color: v.$color-white;
+    display: flex;
+    justify-content: center;
+  }
+  img{
+    width: 100%;
+    height: auto;
   }
   @media #{v.$desktop} {
     grid-template-columns: 68rem 1fr;
