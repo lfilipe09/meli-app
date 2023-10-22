@@ -11,5 +11,14 @@ export const Basic: StoryFn<BreadcrumbProps> = (args) => (
 )
 
 Basic.args = {
-  items: ['Ipod', 'Reprodutores', 'iPod touch', '32 GB']
+  items: [
+    {
+      name: 'Celulares e Telefones',
+      id: 'MLB1051'
+    },
+    {
+      name: 'Celulares e Smartphones',
+      id: 'MLB1055'
+    }
+  ]
 }

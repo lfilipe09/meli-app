@@ -8,7 +8,9 @@
   >div{
     display: grid;
     gap: v.$spacing-small;
-    align-items: center;
+    >div{
+      padding-top: 2rem;
+    }
     a {
       text-decoration: none;
       color: v.$color-gray-80;
@@ -29,8 +31,10 @@
   >span{
     margin-top: 3.2rem;
     font-size: v.$text-size-xsmall;
+    text-align: left;
   }
   @media #{v.$medium} {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 13rem;
   }
 }

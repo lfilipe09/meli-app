@@ -4,8 +4,14 @@
   display: grid;
   justify-content: center;
   gap: 2rem;
-  img{
-    margin: 0 auto;
+  @media #{v.$mobile} {
+    a {
+      display: flex;
+      justify-content: center;
+      img{
+        object-fit: contain;
+      }
+    }
   }
   @media #{v.$medium} {
     grid-template-columns: 8rem 1fr;

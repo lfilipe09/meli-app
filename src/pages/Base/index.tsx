@@ -7,7 +7,7 @@ type BaseTemplateProps = {
 }
 
 const Base = ({ children }: BaseTemplateProps) => (
-  <main className={styles.base}>
+  <main className={styles.base} data-testid="base-component">
     <header className={styles['header__wrapper']}>
       <div className={'container'}>
         <Header />
