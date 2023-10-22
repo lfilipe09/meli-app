@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  meli:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: meli-app
+    env_file:
+      - .env.local
+    ports:
+      - '3000:3000'
